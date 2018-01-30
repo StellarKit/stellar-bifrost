@@ -3,7 +3,13 @@
 set -e
 
 function main() {
-  build-config /configs/config.toml > /opt/bifrost/bifrost.cfg
+  BIFROST_CFG=/opt/bifrost/bifrost.cfg
+  if [ -f $BIFROST_CFG ]; then
+    echo "$BIFROST_CFG exists; skipping generation"
+  else
+    echo "$BIFROST_CFG does not exist; generating from environment variables"
+    build-config /configs/config.toml > /opt/bifrost/bifrost.cfg
+  fi
 
   build-config /configs/pgpass-config > /root/.pgpass
   chmod 600 /root/.pgpass
