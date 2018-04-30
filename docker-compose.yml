@@ -44,6 +44,8 @@ services:
         NETWORK_PASSPHRASE:                "Test SDF Network ; September 2015"
         BIFROST_DB_TYPE:                   "postgres"
         BIFROST_DB_DSN:                    "postgres://stellar:password@bifrostpostgres/bifrostdb?sslmode=disable"
+        BIFROST_DB_HOST:                   "bifrostpostgres"
+        BIFROST_DB_NAME:                   "bifrostdb"
       ports:
         - "8800:8800"
       networks:

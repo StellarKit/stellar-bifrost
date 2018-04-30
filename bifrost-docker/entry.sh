@@ -8,7 +8,7 @@ function main() {
   build-config /configs/pgpass-config > /root/.pgpass
   chmod 600 /root/.pgpass
 
-  while ! psql -h bifrostpostgres -U $POSTGRES_USER -c 'select 1' bifrostdb &> /dev/null
+  while ! psql -h $BIFROST_DB_HOST -U $POSTGRES_USER -c 'select 1' $BIFROST_DB_NAME &> /dev/null
   do
     echo "Waiting for bifrostdb to be available..."
     sleep 1
