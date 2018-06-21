@@ -1,4 +1,4 @@
-FROM golang:alpine as builder
+FROM golang:1.9.3-alpine3.7 as builder
 
 ADD apk-build /apk-build
 RUN chmod +x /apk-build
